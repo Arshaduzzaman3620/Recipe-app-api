@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'rest_framework',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,6 @@ AUTH_USER_MODEL = 'core.User'
 # This setting tells Django to use the custom user model defined in the core app.
 # This is important for authentication and user management.
 # It allows you to define your own user model with custom fields and behavior.
+Rest_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
