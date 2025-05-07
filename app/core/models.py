@@ -1,4 +1,4 @@
-""" Databse models for the application. """
+""" Database models for the application. """
 from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser,
 
@@ -19,8 +19,9 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password=None):
+    def create_superuser(self, email, password):
         """Create and return a superuser with an email and password."""
+      
         user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
@@ -40,4 +41,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     def __str__(self):
-        return self.email
+        return str(self.email)
